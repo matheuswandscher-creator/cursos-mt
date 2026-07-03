@@ -14,6 +14,14 @@
             --text-main: #f8f9fa;
             --text-muted: #a0a0b8;
             --success: #06d6a0;
+            
+            /* Cores das Redes */
+            --instagram: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+            --youtube: #ff0000;
+            --tiktok: #000000;
+            --twitch: #9146ff;
+            --discord: #5865f2;
+            --livepix: #00ffaa;
         }
 
         * {
@@ -76,6 +84,13 @@
             margin: 0 auto 30px auto;
         }
 
+        .buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .cta-btn {
             display: inline-block;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -87,6 +102,8 @@
             font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(138,43,226,0.4);
             transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-btn:hover {
@@ -252,7 +269,48 @@
             color: var(--text-muted);
         }
 
-        /* Seção de Pagamento PIX */
+        /* Nova Seção de Redes Sociais */
+        .social-section {
+            background-color: var(--card-bg);
+            border: 1px solid #242433;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.2s, opacity 0.2s;
+            text-align: center;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        .btn-instagram { background: var(--instagram); }
+        .btn-youtube { background-color: var(--youtube); }
+        .btn-tiktok { background-color: var(--tiktok); border: 1px solid #333; }
+        .btn-twitch { background-color: var(--twitch); }
+        .btn-discord { background-color: var(--discord); }
+
+        /* Seção de Pagamento PIX e Livepix */
         .pix-section {
             background-color: #121216;
             border: 2px dashed #343444;
@@ -293,6 +351,32 @@
             margin-bottom: 10px;
         }
 
+        .btn-livepix {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #000;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-livepix:hover {
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        .ig-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed var(--secondary);
+            transition: color 0.2s;
+        }
+
+        .ig-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -305,6 +389,8 @@
         @media (max-width: 768px) {
             header h1 { font-size: 2.2rem; }
             .course-header { flex-direction: column; text-align: center; }
+            .buttons-group { flex-direction: column; align-items: center; }
+            .cta-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -314,7 +400,10 @@
         <div class="header-container">
             <h1>Fã-Clube <span>VIP Oficial</span></h1>
             <p>Faça parte da nossa comunidade exclusiva, ganhe vantagens incríveis para interagir nos vídeos e domine a arte do desenho sem pagar nada por isso!</p>
-            <a href="#planos" class="cta-btn">Garantir Meu Acesso</a>
+            <div class="buttons-group">
+                <a href="#planos" class="cta-btn">Ver Planos de Acesso</a>
+                <a href="#redes" class="cta-btn" style="background: #242433; border: 1px solid var(--text-muted);">Nossos Canais</a>
+            </div>
         </div>
     </header>
 
@@ -345,77 +434,10 @@
             </div>
         </section>
 
-        <section id="planos">
-            <h2 class="section-title">Escolha Seu Nível de Apoio</h2>
+        <section id="redes" class="social-section">
+            <h2 class="section-title">Nossas Redes Oficiais</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-top: -20px;">Siga e interaja em todas as plataformas para não perder nenhum conteúdo!</p>
             
-            <div class="grid-container">
-                <div class="card">
-                    <div>
-                        <h3>Pacote Figurinhas VIP</h3>
-                        <div class="price">R$ 15,25<span>/taxa única</span></div>
-                        <ul class="features-list">
-                            <li>Figurinhas personalizadas exclusivas</li>
-                            <li>Destaque em vídeos do canal</li>
-                            <li>Uso liberado nos comentários</li>
-                            <li>Acesso ao grupo de apoiadores</li>
-                        </ul>
-                    </div>
-                    <a href="#pagamento" class="cta-btn" style="background: #242433; border: 1px solid var(--primary); text-align: center;">Liberar Agora</a>
-                </div>
-
-                <div class="card featured">
-                    <span class="badge">Mais Vendido</span>
-                    <div>
-                        <h3>Assinatura Mensal</h3>
-                        <div class="price">R$ 12,90<span>/mês</span></div>
-                        <ul class="features-list">
-                            <li>Todos os benefícios de figurinhas</li>
-                            <li>Interação prioritária em comentários</li>
-                            <li>Participação em enquetes de vídeos</li>
-                            <li>Acesso antecipado aos conteúdos</li>
-                        </ul>
-                    </div>
-                    <a href="#pagamento" class="cta-btn" style="text-align: center;">Assinar Mensal</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3>Plano Anual Premium</h3>
-                        <div class="price">R$ 100,00<span>/ano</span></div>
-                        <ul class="features-list">
-                            <li>Economia de mais de R$ 54,00</li>
-                            <li>Acesso completo por 12 meses</li>
-                            <li>Todos os benefícios inclusos</li>
-                            <li>Selo VIP permanente no perfil</li>
-                        </ul>
-                    </div>
-                    <a href="#pagamento" class="cta-btn" style="background: #242433; border: 1px solid var(--secondary); text-align: center;">Garantir Plano Anual</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="pagamento" class="pix-section">
-            <h3 class="pix-title">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
-                    <path d="M12 2L2 12L12 22L22 12L12 2ZM4.83 12L12 4.83L19.17 12L12 19.17L4.83 12Z" fill="#06d6a0"/>
-                    <path d="M12 8L8 12L12 16L16 12L12 8Z" fill="#06d6a0"/>
-                </svg>
-                Pagamento Seguro via PIX
-            </h3>
-            <p class="pix-instruction">Escolha o valor do plano desejado acima e faça a transferência para a chave abaixo:</p>
-            
-            <div class="pix-key-box" title="Clique para selecionar">15998015908</div>
-            
-            <p class="pix-instruction" style="font-size: 0.85rem; margin-top: 15px;">
-                💡 <strong>Dica:</strong> Após realizar o PIX do plano escolhido (R$ 15,25, R$ 12,90 ou R$ 100,00), envie o comprovante para o nosso suporte para liberação imediata das suas figurinhas e vantagens!
-            </p>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Fã-Clube Oficial. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
+            <div class="social-grid">
+                <a href="https://www.instagram.com/matheus_wandscher_?igsh=MWZ5aHk3OTgybWh5Yw==" target="_blank" class="social-btn btn-instagram">Instagram</a>
+                <a href="
